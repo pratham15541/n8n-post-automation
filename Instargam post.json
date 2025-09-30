@@ -1,0 +1,255 @@
+{
+  "name": "Instargam post",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "hours",
+              "hoursInterval": 5
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        0,
+        -64
+      ],
+      "id": "aaa8bd7a-a1d3-47fa-b1c2-af5a971712b2",
+      "name": "Schedule Trigger",
+      "retryOnFail": false,
+      "maxTries": 2,
+      "waitBetweenTries": 5000,
+      "alwaysOutputData": false
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "models/gemini-2.5-pro",
+          "mode": "list",
+          "cachedResultName": "models/gemini-2.5-pro"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "You are a Python-capable AI.  \nExecute the following Python code and return only the generated image prompt (no explanation, no extra text).  \nYou may also add extra descriptive elements or artistic touches if you believe they will improve the image quality.  \nimport random\n\ndef generate_single_ai_image_prompt():\n    # Only nature theme now\n    main_theme = \"nature\"\n\n    nature_scenes = [\n        \"a majestic mountain range\", \"a serene forest floor\", \"a hidden waterfall cove\",\n        \"a sun-drenched meadow filled with wildflowers\", \"a misty jungle canopy\",\n        \"a bioluminescent cave\", \"a tranquil beach at sunset\", \"a frozen tundra under the aurora borealis\",\n        \"a vast, sun-scorched desert with towering mesas\", \"an otherworldly coral reef glowing with bioluminescence\",\n        \"a volcanic landscape with rivers of lava\", \"a canopy walk high in the redwood forest\",\n        \"an arctic ice cave with crystal formations\", \"a floating island in the sky with waterfalls\",\n        \"a golden wheat field under rolling storm clouds\", \"a crystal-clear alpine lake reflecting snowy peaks\",\n        \"a dense enchanted forest glowing with magical light\", \"a canyon carved by a roaring river\",\n        \"a glowing mushroom forest at twilight\", \"a serene Japanese zen garden\",\n        \"a windswept cliff overlooking the ocean\", \"a lush valley filled with wildflowers\",\n        \"a desert oasis surrounded by palm trees\", \"a frozen glacier with deep blue crevasses\",\n        \"a hidden cave with glowing crystals\", \"a peaceful mountain stream under autumn foliage\"\n    ]\n\n    nature_styles = [\n        \"in the style of a fantasy painting\", \"hyper-realistic 8K photo\", \"impressionist oil painting\",\n        \"vibrant and colorful illustration\", \"dramatic cinematic lighting\", \"a peaceful watercolor\",\n        \"in the style of ukiyo-e\", \"surrealist dreamscape\", \"art nouveau illustration\",\n        \"detailed macro photography\", \"a sweeping landscape shot from a drone\", \"retro pixel art\",\n        \"isometric art style\", \"low-poly 3D render\", \"photorealistic concept art\",\n        \"minimalist ink sketch\", \"high-contrast chiaroscuro painting\", \"digital matte painting\",\n        \"lush digital fantasy art\", \"panoramic wide-angle view\"\n    ]\n\n    extra_details = [\n        \"with glowing particles drifting in the air\", \"under a dramatic, stormy sky\",\n        \"bathed in soft moonlight\", \"with a subtle golden lens flare\", \"during the golden hour\",\n        \"with intricate textures and fine detail\", \"with mysterious fog rolling in\",\n        \"reflected in calm water\", \"surrounded by fireflies\", \"with a surreal touch of magical realism\",\n        \"with god rays shining through the clouds\", \"with sparks and embers floating in the wind\",\n        \"with dramatic shadows and highlights\", \"surrounded by cherry blossom petals in the breeze\",\n        \"under a dazzling starry night sky with the Milky Way\", \"with glowing magical runes etched in the scene\",\n        \"with vibrant auroras painting the sky\", \"with crystal-clear reflections like a mirror\",\n        \"with ancient ruins hidden among the trees\", \"with wildlife subtly visible in the distance\"\n    ]\n\n    scene = random.choice(nature_scenes)\n    style = random.choice(nature_styles)\n    prompt = f\"{scene}, {style}, breathtaking scenery, ultra-detailed, atmospheric, volumetric lighting\"\n\n    if random.random() < 0.9:  # strong chance of extra flair\n        prompt += f\", {random.choice(extra_details)}.\"\n\n    return prompt\n\nprint(generate_single_ai_image_prompt())\n"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.googleGemini",
+      "typeVersion": 1,
+      "position": [
+        224,
+        -64
+      ],
+      "id": "e8abe437-482f-4e03-afff-46e1cc9c9caf",
+      "name": "Message a model",
+      "retryOnFail": true,
+      "maxTries": 2,
+      "executeOnce": false,
+      "credentials": {
+        "googlePalmApi": {
+          "id": "nLDxVzonK1vaaInS",
+          "name": "Google Gemini(PaLM) Api account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "image",
+        "modelId": {
+          "__rl": true,
+          "value": "models/gemini-2.0-flash-exp-image-generation",
+          "mode": "list",
+          "cachedResultName": "models/gemini-2.0-flash-exp-image-generation"
+        },
+        "prompt": "={{ $json.content.parts[0].text }}",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.googleGemini",
+      "typeVersion": 1,
+      "position": [
+        576,
+        -64
+      ],
+      "id": "b8c09eda-cbb0-4cbb-9afd-feda57541531",
+      "name": "Generate an image",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "nLDxVzonK1vaaInS",
+          "name": "Google Gemini(PaLM) Api account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "image",
+        "operation": "analyze",
+        "modelId": {
+          "__rl": true,
+          "value": "models/gemini-2.5-pro",
+          "mode": "list",
+          "cachedResultName": "models/gemini-2.5-pro"
+        },
+        "text": "You are a social media content creator AI.  \nTake the following AI-generated image and create a catchy Instagram post for it.  \nReturn the response strictly in this JSON format only:  \n\n{\n  \"title\": \"<short eye-catching Instagram post title>\",\n  \"description\": \"<engaging Instagram caption with hashtags and emojis>\"\n}\n\nDo not add explanations or extra text outside of the JSON.  \n",
+        "inputType": "binary",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.googleGemini",
+      "typeVersion": 1,
+      "position": [
+        800,
+        -64
+      ],
+      "id": "3c494244-6420-4293-bb2e-9064fe50a97a",
+      "name": "Analyze an image",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "nLDxVzonK1vaaInS",
+          "name": "Google Gemini(PaLM) Api account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "user": "demo",
+        "platform": [
+          "instagram"
+        ],
+        "title": "={{ $('Code in JavaScript').item.json.title }}",
+        "scheduledDate": "=",
+        "photos": "=data",
+        "caption": "={{ $('Code in JavaScript').item.json.description}}"
+      },
+      "type": "n8n-nodes-upload-post.uploadPost",
+      "typeVersion": 1,
+      "position": [
+        1472,
+        -64
+      ],
+      "id": "8badcadb-3eca-4479-9ca3-63b06c76167c",
+      "name": "Upload Post",
+      "executeOnce": false,
+      "retryOnFail": true,
+      "maxTries": 2,
+      "credentials": {
+        "uploadPostApi": {
+          "id": "00CwfAOH3bpU4pne",
+          "name": "Upload Post account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Loop over input items and add a new field called 'myNewField' to the JSON of each one\nfor (const item of $input.all()) {\n const raw = item.json.content.parts[0].text\n  const cleaned = raw.replace(/```json\\n?/, \"\").replace(/```$/, \"\");\n  // 2. Parse as JSON\nconst data = JSON.parse(cleaned);\n\n// 3. Access values\n\n  item.json.title = data.title\n  item.json.description = data.description\n}\n\nreturn $input.all();"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1024,
+        -64
+      ],
+      "id": "024467c2-dfd8-4906-a7d2-030a15dfba4e",
+      "name": "Code in JavaScript"
+    },
+    {
+      "parameters": {
+        "jsCode": "return $('Generate an image').all()"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1248,
+        -64
+      ],
+      "id": "403a4ac9-3e5a-478f-85cb-3bd8f3542c73",
+      "name": "Code in JavaScript1"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Message a model",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Message a model": {
+      "main": [
+        [
+          {
+            "node": "Generate an image",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Generate an image": {
+      "main": [
+        [
+          {
+            "node": "Analyze an image",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Analyze an image": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript1": {
+      "main": [
+        [
+          {
+            "node": "Upload Post",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "f2160fc5-e9da-4c2e-a659-7797523b4589",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "ad2d742d7263a92e3c9d18a748aa21c819892ae379e3303321ccfcd81806fd83"
+  },
+  "id": "nR9wLJxCTyDkBwhw",
+  "tags": []
+}
