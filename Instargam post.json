@@ -29,9 +29,9 @@
       "parameters": {
         "modelId": {
           "__rl": true,
-          "value": "models/gemini-2.5-pro",
+          "value": "models/gemini-2.5-flash",
           "mode": "list",
-          "cachedResultName": "models/gemini-2.5-pro"
+          "cachedResultName": "models/gemini-2.5-flash"
         },
         "messages": {
           "values": [
@@ -93,11 +93,11 @@
         "operation": "analyze",
         "modelId": {
           "__rl": true,
-          "value": "models/gemini-2.5-pro",
+          "value": "models/gemini-2.5-flash",
           "mode": "list",
-          "cachedResultName": "models/gemini-2.5-pro"
+          "cachedResultName": "models/gemini-2.5-flash"
         },
-        "text": "You are a social media content creator AI.  \nTake the following AI-generated image and create a catchy Instagram post for it.  \nReturn the response strictly in this JSON format only:  \n\n{\n  \"title\": \"<short eye-catching Instagram post title>\",\n  \"description\": \"<engaging Instagram caption with hashtags and emojis>\"\n}\n\nDo not add explanations or extra text outside of the JSON.  \n",
+        "text": "You are a social media content creator AI.  \nTake the following AI-generated image and create a catchy Instagram post for it.  \nReturn the response strictly in this JSON format only:  \n\n{\n  \"title\": \"<short eye-catching Instagram post title>\",\n  \"description\": \"<engaging Instagram caption with hashtags and emojis>\"\n}\n\nDo not add explanations or extra text outside of the JSON.  \nDo not genreate banned instagram hashtags",
         "inputType": "binary",
         "options": {}
       },
@@ -130,7 +130,7 @@
       "type": "n8n-nodes-upload-post.uploadPost",
       "typeVersion": 1,
       "position": [
-        1472,
+        1696,
         -64
       ],
       "id": "8badcadb-3eca-4479-9ca3-63b06c76167c",
@@ -140,8 +140,8 @@
       "maxTries": 2,
       "credentials": {
         "uploadPostApi": {
-          "id": "00CwfAOH3bpU4pne",
-          "name": "Upload Post account"
+          "id": "iowAq2p1YFaA0KIq",
+          "name": "compassionateshamir6@tomorjerry.com"
         }
       }
     },
@@ -170,6 +170,23 @@
       ],
       "id": "403a4ac9-3e5a-478f-85cb-3bd8f3542c73",
       "name": "Code in JavaScript1"
+    },
+    {
+      "parameters": {
+        "operation": "resize",
+        "width": 1080,
+        "height": 650,
+        "resizeOption": "ignoreAspectRatio",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.editImage",
+      "typeVersion": 1,
+      "position": [
+        1472,
+        -64
+      ],
+      "id": "d710b4b4-edfa-4026-8047-bdd2e5486221",
+      "name": "Edit Image"
     }
   ],
   "pinData": {},
@@ -233,6 +250,17 @@
       "main": [
         [
           {
+            "node": "Edit Image",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Image": {
+      "main": [
+        [
+          {
             "node": "Upload Post",
             "type": "main",
             "index": 0
@@ -245,7 +273,7 @@
   "settings": {
     "executionOrder": "v1"
   },
-  "versionId": "f2160fc5-e9da-4c2e-a659-7797523b4589",
+  "versionId": "05ff1ee1-830b-4380-9c1e-1b58c9a91b59",
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "ad2d742d7263a92e3c9d18a748aa21c819892ae379e3303321ccfcd81806fd83"
