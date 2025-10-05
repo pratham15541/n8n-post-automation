@@ -23,4 +23,5 @@ docker-compose stop
 
 The default name of the database, user and password for PostgreSQL can be changed in the [`.env`](.env) file in the current directory.
 
-![Workflow diagram](./image.png)
+<img width="1725" height="303" alt="image" src="https://github.com/user-attachments/assets/19a65284-2314-438d-aaeb-c17cff33af89" />
+
