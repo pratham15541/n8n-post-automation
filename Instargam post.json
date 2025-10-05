@@ -15,7 +15,7 @@
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.2,
       "position": [
-        0,
+        -32,
         -64
       ],
       "id": "aaa8bd7a-a1d3-47fa-b1c2-af5a971712b2",
@@ -29,14 +29,14 @@
       "parameters": {
         "modelId": {
           "__rl": true,
-          "value": "models/gemini-2.5-flash",
+          "value": "models/gemini-2.5-pro",
           "mode": "list",
-          "cachedResultName": "models/gemini-2.5-flash"
+          "cachedResultName": "models/gemini-2.5-pro"
         },
         "messages": {
           "values": [
             {
-              "content": "You are a Python-capable AI.  \nExecute the following Python code and return only the generated image prompt (no explanation, no extra text).  \nYou may also add extra descriptive elements or artistic touches if you believe they will improve the image quality.  \nimport random\n\ndef generate_single_ai_image_prompt():\n    # Only nature theme now\n    main_theme = \"nature\"\n\n    nature_scenes = [\n        \"a majestic mountain range\", \"a serene forest floor\", \"a hidden waterfall cove\",\n        \"a sun-drenched meadow filled with wildflowers\", \"a misty jungle canopy\",\n        \"a bioluminescent cave\", \"a tranquil beach at sunset\", \"a frozen tundra under the aurora borealis\",\n        \"a vast, sun-scorched desert with towering mesas\", \"an otherworldly coral reef glowing with bioluminescence\",\n        \"a volcanic landscape with rivers of lava\", \"a canopy walk high in the redwood forest\",\n        \"an arctic ice cave with crystal formations\", \"a floating island in the sky with waterfalls\",\n        \"a golden wheat field under rolling storm clouds\", \"a crystal-clear alpine lake reflecting snowy peaks\",\n        \"a dense enchanted forest glowing with magical light\", \"a canyon carved by a roaring river\",\n        \"a glowing mushroom forest at twilight\", \"a serene Japanese zen garden\",\n        \"a windswept cliff overlooking the ocean\", \"a lush valley filled with wildflowers\",\n        \"a desert oasis surrounded by palm trees\", \"a frozen glacier with deep blue crevasses\",\n        \"a hidden cave with glowing crystals\", \"a peaceful mountain stream under autumn foliage\"\n    ]\n\n    nature_styles = [\n        \"in the style of a fantasy painting\", \"hyper-realistic 8K photo\", \"impressionist oil painting\",\n        \"vibrant and colorful illustration\", \"dramatic cinematic lighting\", \"a peaceful watercolor\",\n        \"in the style of ukiyo-e\", \"surrealist dreamscape\", \"art nouveau illustration\",\n        \"detailed macro photography\", \"a sweeping landscape shot from a drone\", \"retro pixel art\",\n        \"isometric art style\", \"low-poly 3D render\", \"photorealistic concept art\",\n        \"minimalist ink sketch\", \"high-contrast chiaroscuro painting\", \"digital matte painting\",\n        \"lush digital fantasy art\", \"panoramic wide-angle view\"\n    ]\n\n    extra_details = [\n        \"with glowing particles drifting in the air\", \"under a dramatic, stormy sky\",\n        \"bathed in soft moonlight\", \"with a subtle golden lens flare\", \"during the golden hour\",\n        \"with intricate textures and fine detail\", \"with mysterious fog rolling in\",\n        \"reflected in calm water\", \"surrounded by fireflies\", \"with a surreal touch of magical realism\",\n        \"with god rays shining through the clouds\", \"with sparks and embers floating in the wind\",\n        \"with dramatic shadows and highlights\", \"surrounded by cherry blossom petals in the breeze\",\n        \"under a dazzling starry night sky with the Milky Way\", \"with glowing magical runes etched in the scene\",\n        \"with vibrant auroras painting the sky\", \"with crystal-clear reflections like a mirror\",\n        \"with ancient ruins hidden among the trees\", \"with wildlife subtly visible in the distance\"\n    ]\n\n    scene = random.choice(nature_scenes)\n    style = random.choice(nature_styles)\n    prompt = f\"{scene}, {style}, breathtaking scenery, ultra-detailed, atmospheric, volumetric lighting\"\n\n    if random.random() < 0.9:  # strong chance of extra flair\n        prompt += f\", {random.choice(extra_details)}.\"\n\n    return prompt\n\nprint(generate_single_ai_image_prompt())\n"
+              "content": "You are a Python-capable AI.  \nExecute the following Python code and return only the generated image prompt (no explanation, no extra text).  \nYou may also add extra descriptive elements, cinematic touches, or artistic flourishes if they improve the image quality.  \n\nimport random\n\ndef generate_single_ai_image_prompt():\n    roll = random.random()\n    \n    def random_combo(choices, min_count=1, max_count=3, joiner=\", \"):\n        count = random.randint(min_count, max_count)\n        return joiner.join(random.sample(choices, count))\n    \n    # ===== Nature Theme =====\n    if roll < 0.6:\n        nature_scenes = [\n            # Landscapes\n            \"a majestic mountain range\", \"a serene forest floor\", \"a hidden waterfall cove\",\n            \"a sun-drenched meadow filled with wildflowers\", \"a misty jungle canopy\",\n            \"a bioluminescent cave\", \"a tranquil beach at sunset\", \"a frozen tundra under the aurora borealis\",\n            \"a vast desert with towering mesas\", \"a volcanic landscape with rivers of lava\",\n            \"a golden wheat field under rolling storm clouds\", \"a glowing mushroom forest at twilight\",\n            \"a floating island in the sky with waterfalls\", \"a crystal-clear alpine lake reflecting snowy peaks\",\n            \"an arctic ice cave with crystal formations\", \"a jungle temple covered in vines\",\n            \"a windswept cliff overlooking the ocean\", \"a bamboo forest swaying in the wind\",\n            \"a savanna with distant wildlife silhouettes\", \"a cosmic desert with two suns\",\n            \"a canyon filled with glowing crystals\", \"a mountain peak above the clouds\",\n            \"an ancient tree with roots spanning across a valley\", \"a mystical oasis with shimmering water\",\n            # New Additions\n            \"a rainbow arching over a thunderous waterfall\", \"a secluded valley blanketed in fog\",\n            \"a canyon carved by glowing rivers\", \"a hidden lagoon with crystal waters\",\n            \"an alien desert with floating rocks\", \"a red rock canyon at sunrise\",\n            \"a stormy ocean with giant waves\", \"a glowing coral reef teeming with life\",\n            \"a desert oasis under starlight\", \"a plateau surrounded by lightning storms\",\n            \"a moonlit tundra with icy peaks\", \"a cave of glowing stalactites\",\n            \"a jungle pyramid hidden in mist\", \"a surreal mirrored desert landscape\"\n        ]\n\n        nature_styles = [\n            \"fantasy painting\", \"hyper-realistic 8K photo\", \"impressionist oil painting\",\n            \"dramatic cinematic lighting\", \"peaceful watercolor\", \"surrealist dreamscape\",\n            \"art nouveau illustration\", \"photorealistic concept art\", \"high-contrast chiaroscuro painting\",\n            \"lush digital fantasy art\", \"panoramic wide-angle view\", \"vaporwave aesthetic\",\n            \"dark gothic painting\", \"futuristic sci-fi matte painting\", \"anime-inspired landscape\",\n            \"dreamy pastel palette\", \"ethereal fantasy art\", \"isometric illustration\",\n            \"mythical oil canvas style\", \"hyper-saturated digital painting\", \"steampunk-inspired fantasy art\",\n            # New Additions\n            \"low-poly surreal 3D render\", \"psychedelic neon art\", \"retro 80s poster aesthetic\",\n            \"digital matte painting with photoreal textures\", \"child-like crayon style\",\n            \"cel-shaded fantasy art\", \"RPG concept art style\", \"vintage travel poster aesthetic\"\n        ]\n\n        extra_details = [\n            \"glowing particles drifting in the air\", \"bathed in soft moonlight\",\n            \"subtle golden lens flare\", \"during the golden hour\", \"mysterious fog rolling in\",\n            \"reflected in calm water\", \"surrounded by fireflies\", \"god rays shining through clouds\",\n            \"vibrant auroras painting the horizon\", \"ancient ruins hidden among trees\",\n            \"wildlife subtly visible in the distance\", \"floating lanterns illuminating the scene\",\n            \"meteor showers streaking across the sky\", \"surreal dreamlike haze\",\n            \"shattered glass reflections\", \"glowing neon flora\", \"dramatic lightning bolts\",\n            \"rippling magical energy waves\", \"crystalline shards floating in the air\",\n            \"soft rain with glistening reflections\", \"mirrored skies with impossible geometry\",\n            # New Additions\n            \"butterflies glowing in the dark\", \"time distortion blurring the edges\",\n            \"glowing geometric fractals in the sky\", \"shards of ice floating midair\",\n            \"lava cracks glowing in the ground\", \"celestial constellations visible above\",\n            \"floating islands upside down in the distance\", \"thick vines wrapping ancient statues\"\n        ]\n\n        scene = random_combo(nature_scenes, 1, 2, \" and \")\n        style = random_combo(nature_styles, 1, 2, \" + \")\n        detail = random_combo(extra_details, 2, 3, \", \")\n\n        return f\"{scene}, {style}, breathtaking scenery, ultra-detailed, atmospheric, volumetric lighting, {detail}.\"\n    \n    # ===== Anime Theme =====\n    elif roll < 0.85:\n        anime_characters = [\n            \"Monkey D. Luffy\", \"Roronoa Zoro\", \"Nami\", \"Naruto Uzumaki\", \"Sasuke Uchiha\", \"Kakashi Hatake\",\n            \"Natsu Dragneel\", \"Erza Scarlet\", \"Lucy Heartfilia\", \"Goku\", \"Vegeta\", \"Piccolo\",\n            \"Yuji Itadori\", \"Satoru Gojo\", \"Nobara Kugisaki\", \"Kenshin Himura\", \"Ichigo Kurosaki\", \"Rukia Kuchiki\",\n            \"Eren Yeager\", \"Mikasa Ackerman\", \"Levi Ackerman\", \"Tanjiro Kamado\", \"Nezuko Kamado\",\n            \"Izuku Midoriya\", \"All Might\", \"Shoto Todoroki\", \"Light Yagami\", \"L\", \"Edward Elric\",\n            \"Alphonse Elric\", \"Killua Zoldyck\", \"Hisoka\", \"Kirito\", \"Asuna\", \"Ken Kaneki\",\n            \"Sailor Moon\", \"Inuyasha\", \"Yusuke Urameshi\", \"Shinji Ikari\", \"Spike Spiegel\",\n            # New additions\n            \"Asta\", \"Yami Sukehiro\", \"Deku in full cowl\", \"Ryuk\", \"Shinobu Kocho\",\n            \"Rengoku Kyojuro\", \"Madara Uchiha\", \"Obito Uchiha\", \"Zoro in Enma mode\",\n            \"Broly\", \"Future Trunks\", \"Kawaki\", \"Boruto Uzumaki\", \"Itachi Uchiha\"\n        ]\n\n        anime_scenes = [\n            \"a bustling Japanese city street at night\", \"a quiet dojo surrounded by cherry blossoms\",\n            \"a mystical shrine deep within the forest\", \"a battlefield with energy blasts lighting up the sky\",\n            \"a vibrant festival with glowing lanterns\", \"a seaside town at sunset with sakura petals drifting\",\n            \"a rooftop under a starry night sky\", \"a massive coliseum filled with cheering crowds\",\n            \"a futuristic neon-lit Tokyo\", \"a mystical mountain shrine in the clouds\",\n            \"a starry beach with glowing waves\", \"a cyberpunk metropolis with flying cars\",\n            \"a cosmic battlefield with shattered planets\", \"a cursed forest glowing with red eyes\",\n            \"a parallel dimension with floating islands\", \"an abandoned mecha graveyard\",\n            # New additions\n            \"a giant mecha battle under storm clouds\", \"a cosmic temple orbiting Saturn\",\n            \"a burning city under invasion\", \"a desert village with sandstorms raging\",\n            \"a multiverse rift tearing open the sky\", \"a haunted abandoned school\",\n            \"a moonlit bamboo grove\", \"a shattered arena with glowing energy cracks\"\n        ]\n\n        anime_styles = [\n            \"vivid shonen anime style\", \"Studio Ghibli style\", \"sharp manga line art\",\n            \"hyper-detailed anime illustration\", \"cyberpunk anime aesthetic\",\n            \"cinematic anime still frame\", \"watercolor anime style\",\n            \"colorful anime poster art\", \"gothic dark anime style\", \"retro 90s anime vibe\",\n            \"fantasy anime illustration\", \"chibi cute anime style\",\n            \"high-energy battle animation\", \"glowing aura effects\", \"dreamlike surreal anime\",\n            \"sketchy manga ink style\", \"anime film grain cinematic look\",\n            # New additions\n            \"classic black-and-white manga panel\", \"modern webtoon style\",\n            \"AI-enhanced anime fusion art\", \"ink wash sumi-e anime aesthetic\",\n            \"3D cel-shaded anime game render\"\n        ]\n\n        anime_details = [\n            \"glowing magical energy\", \"surrounded by falling cherry blossoms\",\n            \"under a glowing full moon\", \"amidst a dramatic lightning storm\",\n            \"neon signs reflecting in the rain\", \"cosmic energy waves pulsing in the background\",\n            \"swirling fire and smoke\", \"ethereal glowing butterflies\",\n            \"magical seals glowing beneath their feet\", \"meteor showers overhead\",\n            \"floating runes and glyphs in the air\", \"digital glitching aura effects\",\n            # New additions\n            \"dragon-shaped energy spirals\", \"torn dimensional rifts opening\",\n            \"rain-drenched battle arena\", \"crimson glowing eyes\",\n            \"shattered weapons floating midair\", \"spirit animals surrounding them\"\n        ]\n\n        character = random.choice(anime_characters)\n        scene = random_combo(anime_scenes, 1, 2, \" and \")\n        style = random_combo(anime_styles, 1, 2, \" + \")\n        detail = random_combo(anime_details, 2, 3, \", \")\n\n        return f\"{character}, {scene}, {style}, ultra-detailed, vibrant colors, cinematic anime lighting, {detail}.\"\n    \n    # ===== Hybrid Crossover Theme =====\n    else:\n        anime_characters = [\n            \"Naruto Uzumaki\", \"Sasuke Uchiha\", \"Kakashi Hatake\", \"Tanjiro Kamado\", \"Nezuko Kamado\",\n            \"Eren Yeager\", \"Levi Ackerman\", \"Satoru Gojo\", \"Ichigo Kurosaki\", \"Goku\", \"Vegeta\",\n            \"Kirito\", \"Asuna\", \"Ken Kaneki\", \"Edward Elric\", \"Killua Zoldyck\",\n            \"Shoto Todoroki\", \"Inuyasha\", \"Sailor Moon\", \"Spike Spiegel\",\n            # New Additions\n            \"Itachi Uchiha\", \"Jiraiya\", \"Hashirama Senju\", \"Giorno Giovanna\",\n            \"Dio Brando\", \"Alucard\", \"Shanks\", \"Whitebeard\", \"Madara Uchiha\"\n        ]\n\n        fantasy_nature_scenes = [\n            \"standing on a floating island with cascading waterfalls\", \n            \"exploring a glowing crystal cave\", \n            \"battling atop a volcano with rivers of lava\", \n            \"walking through a glowing mushroom forest\", \n            \"training in a bamboo grove under moonlight\", \n            \"facing off in an ancient ruined temple\", \n            \"meditating by a tranquil alpine lake\", \n            \"charging through a stormy desert with lightning bolts\",\n            \"standing before an aurora-lit glacier\", \n            \"fighting amidst giant cherry blossom trees\",\n            \"wandering a shattered sky-realm\", \n            \"dueling on a suspended bridge above clouds\",\n            # New Additions\n            \"summoning elemental dragons in a storm\", \n            \"amidst giant glowing runestones\",\n            \"in a collapsing floating fortress\", \n            \"inside a cosmic library with infinite books\",\n            \"at the heart of a galaxy vortex\"\n        ]\n\n        crossover_styles = [\n            \"anime-fantasy fusion style\", \"hyper-detailed cinematic illustration\",\n            \"epic anime poster art\", \"dark fantasy anime aesthetic\",\n            \"Studio Ghibli meets Final Fantasy\", \"surreal dreamlike anime landscape\",\n            \"glowing cyber-fantasy hybrid\", \"anime x photorealism fusion\",\n            \"dynamic shonen manga panel\", \"digital painting with volumetric effects\",\n            \"cel-shaded anime mixed with painterly realism\",\n            # New Additions\n            \"anime x renaissance oil painting\", \"mythological anime crossover\",\n            \"AI-blended dreamlike anime realism\", \"celestial fantasy anime vibe\"\n        ]\n\n        crossover_details = [\n            \"glowing runes scattered across the environment\", \"swirling elemental energy\",\n            \"bathed in golden god rays\", \"amidst glowing embers and sparks\",\n            \"giant spirit animals looming in the background\", \"floating magical crystals\",\n            \"meteor showers streaking across the horizon\", \"neon-colored magical effects\",\n            \"surreal mirrored reflections\", \"collapsing ruins and magical explosions\",\n            \"floating swords surrounding the character\", \"time-warped fragments distorting the air\",\n            # New additions\n            \"ethereal chains glowing with energy\", \"giant shadowy deities above\",\n            \"cosmic portals opening midair\", \"crystalline dragons flying in the distance\",\n            \"otherworldly fractals shimmering in the sky\"\n        ]\n\n        character = random.choice(anime_characters)\n        scene = random_combo(fantasy_nature_scenes, 1, 2, \" and \")\n        style = random_combo(crossover_styles, 1, 2, \" + \")\n        detail = random_combo(crossover_details, 2, 3, \", \")\n\n        return f\"{character}, {scene}, {style}, ultra-detailed, cinematic fusion art, vibrant atmosphere, {detail}.\"\n\n\nprint(generate_single_ai_image_prompt())\n"
             }
           ]
         },
@@ -45,7 +45,7 @@
       "type": "@n8n/n8n-nodes-langchain.googleGemini",
       "typeVersion": 1,
       "position": [
-        224,
+        192,
         -64
       ],
       "id": "e8abe437-482f-4e03-afff-46e1cc9c9caf",
@@ -75,7 +75,7 @@
       "type": "@n8n/n8n-nodes-langchain.googleGemini",
       "typeVersion": 1,
       "position": [
-        576,
+        544,
         -64
       ],
       "id": "b8c09eda-cbb0-4cbb-9afd-feda57541531",
@@ -93,9 +93,9 @@
         "operation": "analyze",
         "modelId": {
           "__rl": true,
-          "value": "models/gemini-2.5-flash",
+          "value": "models/gemini-2.5-pro",
           "mode": "list",
-          "cachedResultName": "models/gemini-2.5-flash"
+          "cachedResultName": "models/gemini-2.5-pro"
         },
         "text": "You are a social media content creator AI.  \nTake the following AI-generated image and create a catchy Instagram post for it.  \nReturn the response strictly in this JSON format only:  \n\n{\n  \"title\": \"<short eye-catching Instagram post title>\",\n  \"description\": \"<engaging Instagram caption with hashtags and emojis>\"\n}\n\nDo not add explanations or extra text outside of the JSON.  \nDo not genreate banned instagram hashtags",
         "inputType": "binary",
@@ -104,44 +104,16 @@
       "type": "@n8n/n8n-nodes-langchain.googleGemini",
       "typeVersion": 1,
       "position": [
-        800,
+        768,
         -64
       ],
       "id": "3c494244-6420-4293-bb2e-9064fe50a97a",
       "name": "Analyze an image",
+      "retryOnFail": true,
       "credentials": {
         "googlePalmApi": {
           "id": "nLDxVzonK1vaaInS",
           "name": "Google Gemini(PaLM) Api account 2"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "user": "demo",
-        "platform": [
-          "instagram"
-        ],
-        "title": "={{ $('Code in JavaScript').item.json.title }}",
-        "scheduledDate": "=",
-        "photos": "=data",
-        "caption": "={{ $('Code in JavaScript').item.json.description}}"
-      },
-      "type": "n8n-nodes-upload-post.uploadPost",
-      "typeVersion": 1,
-      "position": [
-        1696,
-        -64
-      ],
-      "id": "8badcadb-3eca-4479-9ca3-63b06c76167c",
-      "name": "Upload Post",
-      "executeOnce": false,
-      "retryOnFail": true,
-      "maxTries": 2,
-      "credentials": {
-        "uploadPostApi": {
-          "id": "iowAq2p1YFaA0KIq",
-          "name": "compassionateshamir6@tomorjerry.com"
         }
       }
     },
@@ -152,7 +124,7 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        1024,
+        992,
         -64
       ],
       "id": "024467c2-dfd8-4906-a7d2-030a15dfba4e",
@@ -165,7 +137,7 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        1248,
+        1216,
         -64
       ],
       "id": "403a4ac9-3e5a-478f-85cb-3bd8f3542c73",
@@ -182,11 +154,207 @@
       "type": "n8n-nodes-base.editImage",
       "typeVersion": 1,
       "position": [
-        1472,
+        1440,
         -64
       ],
       "id": "d710b4b4-edfa-4026-8047-bdd2e5486221",
       "name": "Edit Image"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.imgbb.com/1/upload",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "key",
+              "value": "3749420a12bebd7b65df2dce974d065f"
+            }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "form-urlencoded",
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "image",
+              "value": "={{ $json.data }}"
+            }
+          ]
+        },
+        "options": {
+          "redirect": {
+            "redirect": {}
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        192,
+        160
+      ],
+      "id": "1a568f9c-b8b2-4073-8a51-f7a72c2e1bb0",
+      "name": "HTTP Request",
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "operation": "binaryToPropery",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.extractFromFile",
+      "typeVersion": 1,
+      "position": [
+        -32,
+        160
+      ],
+      "id": "630507cb-60c5-45e4-be03-0833bf6c94a4",
+      "name": "Extract from File",
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "httpRequestMethod": "POST",
+        "graphApiVersion": "v23.0",
+        "node": "17841477729343710",
+        "edge": "media",
+        "options": {
+          "queryParameters": {
+            "parameter": [
+              {
+                "name": "image_url",
+                "value": "={{ $json.url }}"
+              },
+              {
+                "name": "caption",
+                "value": "={{ $('Code in JavaScript').item.json.description }}"
+              }
+            ]
+          }
+        }
+      },
+      "type": "n8n-nodes-base.facebookGraphApi",
+      "typeVersion": 1,
+      "position": [
+        1888,
+        -64
+      ],
+      "id": "6b6b7228-b6d3-484c-a3cb-6b1dc62e64b5",
+      "name": "Facebook Graph API",
+      "credentials": {
+        "facebookGraphApi": {
+          "id": "WMZxqrOm2McuEdZP",
+          "name": "Facebook Graph account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "user": "demo",
+        "platform": [
+          "instagram"
+        ],
+        "title": "={{ $('Code in JavaScript').item.json.title }}",
+        "scheduledDate": "=",
+        "photos": "={{$json.data.display_url}}",
+        "caption": "={{ $('Code in JavaScript').item.json.description}}"
+      },
+      "type": "n8n-nodes-upload-post.uploadPost",
+      "typeVersion": 1,
+      "position": [
+        -32,
+        384
+      ],
+      "id": "8badcadb-3eca-4479-9ca3-63b06c76167c",
+      "name": "Upload Post",
+      "executeOnce": false,
+      "retryOnFail": true,
+      "maxTries": 2,
+      "credentials": {
+        "uploadPostApi": {
+          "id": "00CwfAOH3bpU4pne",
+          "name": "demo31528@gmail.com"
+        }
+      },
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "httpRequestMethod": "POST",
+        "graphApiVersion": "v23.0",
+        "node": "17841477729343710",
+        "edge": "media_publish",
+        "options": {
+          "queryParameters": {
+            "parameter": [
+              {
+                "name": "image_url",
+                "value": "={{ $('Upload an asset from file data').item.json.url }}"
+              },
+              {
+                "name": "caption",
+                "value": "={{ $('Code in JavaScript').item.json.description }}"
+              },
+              {
+                "name": "creation_id",
+                "value": "={{ $json.id }}"
+              }
+            ]
+          }
+        }
+      },
+      "type": "n8n-nodes-base.facebookGraphApi",
+      "typeVersion": 1,
+      "position": [
+        2336,
+        -64
+      ],
+      "id": "6326e3ad-0fe3-4098-82c7-b1b2ed133224",
+      "name": "insta-post",
+      "retryOnFail": true,
+      "waitBetweenTries": 2000,
+      "credentials": {
+        "facebookGraphApi": {
+          "id": "WMZxqrOm2McuEdZP",
+          "name": "Facebook Graph account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "uploadFile",
+        "additionalFieldsFile": {}
+      },
+      "type": "n8n-nodes-cloudinary.cloudinary",
+      "typeVersion": 1,
+      "position": [
+        1664,
+        -64
+      ],
+      "id": "6e02d0f5-0964-4d15-b26e-dab5f7146f38",
+      "name": "Upload an asset from file data",
+      "credentials": {
+        "cloudinaryApi": {
+          "id": "vet2qMI2CzJHc4wx",
+          "name": "Cloudinary account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "amount": 3
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        2112,
+        -64
+      ],
+      "id": "c10d768e-a1e3-4de3-8463-454f2eeae640",
+      "name": "Wait",
+      "webhookId": "73baeacd-9210-414f-8287-23b3c250a07a"
     }
   ],
   "pinData": {},
@@ -261,7 +429,56 @@
       "main": [
         [
           {
-            "node": "Upload Post",
+            "node": "Upload an asset from file data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        []
+      ]
+    },
+    "Extract from File": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Facebook Graph API": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Upload an asset from file data": {
+      "main": [
+        [
+          {
+            "node": "Facebook Graph API",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "insta-post",
             "type": "main",
             "index": 0
           }
@@ -273,7 +490,7 @@
   "settings": {
     "executionOrder": "v1"
   },
-  "versionId": "05ff1ee1-830b-4380-9c1e-1b58c9a91b59",
+  "versionId": "b8a7865d-03e2-4a87-9819-d3e24c3bbd99",
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "ad2d742d7263a92e3c9d18a748aa21c819892ae379e3303321ccfcd81806fd83"
